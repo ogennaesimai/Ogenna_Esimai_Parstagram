@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/miCamera"
+        android:icon="@drawable/camera_shadow_fill"
+        android:title="Camera"
+        android:visible="true"
+        app:showAsAction="always"></item>
+    <!--        app:showAsAction="ifRoom"-->
+    <item
+        android:id="@+id/miLogo"
+        android:icon="@drawable/nav_logo_whiteout"
+        android:title="Logo"
+        app:showAsAction="always"></item>
+    <!--        app:showAsAction="ifRoom|withText"-->
+
+    <item
+        android:id="@+id/miSendPaperPlane"
+        android:icon="@drawable/nav_inbox_paper_plane"
+        android:title="SendPaperPlane"
+        app:showAsAction="always"></item>
+    <!--        app:showAsAction="ifRoom|withText"-->
+</menu>
