@@ -63,11 +63,11 @@ Describe any challenges encountered while building the app.
 
 
 
-# Project 3 - *Name of App Here*
+# Project 3 - *Ogenna_Esimai_Parstagram Part 2*
 
-**Name of your app** is a photo sharing app similar to Instagram but using Parse as its backend.
+**Ogenna_Esimai_Parstagram** is a photo sharing app similar to Instagram but using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **>5** hours spent in total
 
 ## User Stories
 
@@ -95,11 +95,11 @@ The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
 
-## Video Walkthrough
+## Video Walkthrough Part 2
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/ogennaesimai/Ogenna_Esimai_Parstagram/blob/master/Ogenna_Esimai_Parstagram_2_Walkthrough.gif' title='Video Walkthrough' width='400' alt='Video Walkthrough' />
+<img src='https://github.com/ogennaesimai/Ogenna_Esimai_Parstagram/blob/master/Ogenna_Esimai_Parstagram_2_Walkthrough.gif' title='Video Walkthrough' width='400' alt='Ogenna_Esimai_Parstagram_2_Walkthrough.gif' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/) v.1.28.
 
