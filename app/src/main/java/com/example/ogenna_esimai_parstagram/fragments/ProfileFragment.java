@@ -13,23 +13,36 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.ogenna_esimai_parstagram.LoginActivity;
 import com.example.ogenna_esimai_parstagram.Post;
+import com.example.ogenna_esimai_parstagram.PostsAdapter;
 import com.example.ogenna_esimai_parstagram.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ProfileFragment extends PostsFragment {
+public class ProfileFragment extends Fragment {
 
-    //private Toolbar abActionbar;
-    private Toolbar tbToolbar;
+    private RecyclerView rvPosts;
+    public SwipeRefreshLayout swipeContainer;
+    protected PostsAdapter adapter;
+    protected List<Post> allPosts;
     private Button btnLogOut;
 
+    public static final String TAG = "ProfileFragment";
+
+    public ProfileFragment() {
+        // Required empty public constructor
+    }
 
     // This event is triggered soon after onCreateView().
     // onViewCreated() is only called if the view returned from onCreateView() is non-null.
@@ -46,17 +59,11 @@ public class ProfileFragment extends PostsFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //abActionbar = findViewById(R.id.abActionbar);
-        //tbToolbar = view.findViewById(R.id.tbToolbar);
+        rvPosts = view.findViewById(R.id.rvPosts);
+        allPosts = new ArrayList<>();
+        adapter = new PostsAdapter(getContext(), allPosts);
 
         btnLogOut = view.findViewById(R.id.btnLogOutProfileInNestedLinearLayout);
-
-        //setSupportActionBar(tbToolbar);
-        //((AppCompatActivity)getActivity()).setSupportActionBar(tbToolbar);
-
-        //setSupportActionBar(abActionbar);
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
-        //getSupportActionBar().setTitle(null);
 
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,15 +75,45 @@ public class ProfileFragment extends PostsFragment {
             }
         });
 
-        /*etCaption.setOnClickListener(new View.OnClickListener() {
+        // Steps to use the recycler view:
+        // 1. create the adapter
+        allPosts = new ArrayList<>();
+        adapter = new PostsAdapter(getContext(), allPosts);
+
+        // Lookup the swipe container view
+        swipeContainer = view.findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+            swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View v) {
-                etCaption.onEditorAction(EditorInfo.IME_ACTION_DONE);
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                Log.i(TAG, "fetching new data!");
+                swipeContainer.setRefreshing(false);
+                queryPosts();
             }
-        });*/
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+        android.R.color.holo_green_light,
+        android.R.color.holo_purple,
+        android.R.color.holo_red_light);
+
+        // Steps to use the recycler view:
+        // 0. create layout for one row in the list
+        // 1. create the adapter
+        // 2. create the data source
+        // 3. set the adapter on the recycleron view
+        rvPosts.setAdapter(adapter);
+        // 4. set the layout manager on the recycler view
+        // by default the code below will provide a vertical LinLayoutMgr to the recycler view
+        // which is what we want
+        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+        queryPosts();
     }
 
-    @Override
+    //@Override
     protected void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
@@ -94,6 +131,7 @@ public class ProfileFragment extends PostsFragment {
                     //Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
                     Log.i(TAG, "Post: " + post.getCaption() + ", username: " + post.getUser().getUsername());
                 }
+
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
             }
