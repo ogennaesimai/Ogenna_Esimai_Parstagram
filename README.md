@@ -147,7 +147,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [x] User sees app icon in home screen and styled bottom navigation view
-- [x] Style the feed to look like the real Instagram feed. (Includes moved Log Out from Compose screen to Profile screen top right. Thank you to Giancarlo Garcia Deleon for the suggestion!)
+- [x] Style the feed to look like the real Instagram feed. (Includes moved Log Out from Compose screen to Profile screen top right. Thank You to Giancarlo Garcia Deleon for the suggestion!)
 - [ ] After the user submits a new post, show an indeterminate progress bar while the post is being uploaded to Parse.
 
 The following **additional** features are implemented:
