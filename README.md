@@ -133,7 +133,7 @@ Describe any challenges encountered while building the app.
 
 **Ogenna_Esimai_Parstagram** is a photo sharing app similar to Instagram but using Parse as its backend.
 
-Time spent: **5** hours spent in total
+Time spent: **>5** hours spent in total
 
 ## User Stories
 
