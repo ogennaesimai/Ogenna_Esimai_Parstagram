@@ -49,7 +49,11 @@ public class Post extends ParseObject {
         put(KEY_CAPTION, caption);
     }
 
-    public Date getKeyCreatedAt() {
-        return getDate(KEY_CREATED_AT);
+    public static String getKeyCreatedAt() {
+        return KEY_CREATED_AT;
     }
+
+    /*public Date getKeyCreatedAt() {
+        return getDate(KEY_CREATED_AT);
+    }*/
 }

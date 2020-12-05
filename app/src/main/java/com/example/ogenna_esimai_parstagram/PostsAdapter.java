@@ -71,7 +71,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 Log.i("PostsAdapter_caption", post.getCaption());
             tvUsername.setText(post.getUser().getUsername());
                 Log.i("PostsAdapter_getUser().getUsername()", post.getUser().getUsername());
-            //tvCreatedAt.setText(post.getKeyCreatedAt());
+            tvCreatedAt.setText(post.getKeyCreatedAt());
                 //Log.i("PostsAdapter", post.getKeyCreatedAt().toString());
             //first check if post has a valid image
             ParseFile image = post.getImage();
