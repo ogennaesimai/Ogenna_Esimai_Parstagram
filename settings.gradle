@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Ogenna_Esimai_Parstagram"

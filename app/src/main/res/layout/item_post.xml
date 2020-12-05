@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        tools:text="Username" />
+
+    <TextView
+        android:id="@+id/tvCreatedAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="290dp"
+        android:layout_marginEnd="0dp"
+        android:text="CreatedAt" />
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/tvUsername"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="Image"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivImage"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:text="Caption"
+        tools:text="update this caption" />
+
+</RelativeLayout>
